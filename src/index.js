@@ -5,7 +5,7 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 import App from './App';
 import store from './store';
-import { DefaultTheme } from './theme';
+import theme from './theme';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -20,13 +20,15 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: ${p => p.theme.globalFont};
+    color: ${p=>p.theme.white};
+    background-color: ${p => p.theme.dark};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 `;
 
 ReactDOM.render(
-  <ThemeProvider theme={DefaultTheme}>
+  <ThemeProvider theme={theme}>
     <GlobalStyle />
     <Provider store={store}>
       <App />
