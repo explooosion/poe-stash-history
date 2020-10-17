@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Switch, Route, useLocation } from 'react-router-dom';
+import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { BreadCrumb } from 'primereact/breadcrumb';
 
@@ -58,10 +58,11 @@ function Layout() {
           <BreadCrumb model={breadModel} home={breadHome} style={{ marginBottom: '1rem' }} />
           <Switch>
             {Routes.map(route => renderRoute(route))}
+            <Redirect to="/dashboard" />
           </Switch>
         </Content>
       </Container>
-    </Main>
+    </Main >
   )
 }
 

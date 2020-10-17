@@ -1,0 +1,264 @@
+[
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u7684\u9b45\u9b54\u9ecf\u819c",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 6,
+    "ascendancyClass": 3,
+    "class": "Saboteur",
+    "level": 88,
+    "experience": 1663299865
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u5074\u4e73\u64e0\u51fa\u4f86\u60f9",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 6,
+    "ascendancyClass": 3,
+    "class": "Saboteur",
+    "level": 87,
+    "experience": 1523286132
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u4eca\u5929\u68eechichi",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 0,
+    "ascendancyClass": 1,
+    "class": "Ascendant",
+    "level": 88,
+    "experience": 1646943474
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u7684\u7c89\u9b91\u5ae9\u7a74",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 4,
+    "ascendancyClass": 3,
+    "class": "Champion",
+    "level": 87,
+    "experience": 1531034412
+  },
+  {
+    "name": "\u6f64\u6ed1\u6db2\u7684\u611f\u89ba",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 3,
+    "ascendancyClass": 0,
+    "class": "Witch",
+    "level": 54,
+    "experience": 89037662
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u6bd4\u4e09\u4e5dMore\u8cb4",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 6,
+    "ascendancyClass": 1,
+    "class": "Assassin",
+    "level": 88,
+    "experience": 1660033487
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u5c0d\u8457\u8089\u868c\u8214",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 1,
+    "ascendancyClass": 1,
+    "class": "Juggernaut",
+    "level": 90,
+    "experience": 1937952415
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u7684\u5206\u6ccc\u6db2\u9999\u9999",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 5,
+    "ascendancyClass": 2,
+    "class": "Hierophant",
+    "level": 82,
+    "experience": 1037119685
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u7684\u6b63\u7fa9\u71c3\u71d2",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 5,
+    "ascendancyClass": 2,
+    "class": "Hierophant",
+    "level": 87,
+    "experience": 1520483520
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 0,
+    "ascendancyClass": 1,
+    "class": "Ascendant",
+    "level": 90,
+    "experience": 1934009687,
+    "lastActive": true
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u6c92\u5403RU\u56db\u516b\u516d",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 1,
+    "ascendancyClass": 2,
+    "class": "Berserker",
+    "level": 90,
+    "experience": 1934009687
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u7684\u690e\u6db2\u5473\u9053",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 3,
+    "ascendancyClass": 1,
+    "class": "Occultist",
+    "level": 87,
+    "experience": 1521541411
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u7684\u8089\u58c1\u9ecf\u7cca",
+    "league": "\u52ab\u76dc\u806f\u76df",
+    "classId": 3,
+    "ascendancyClass": 1,
+    "class": "Occultist",
+    "level": 85,
+    "experience": 1352235165
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u7684\u82b1\u82b1\u871c\u6797",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 5,
+    "ascendancyClass": 1,
+    "class": "Inquisitor",
+    "level": 88,
+    "experience": 1655576465
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u9b91\u9b91\u80a5\u5ae9\u591a\u6c41",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 3,
+    "ascendancyClass": 3,
+    "class": "Necromancer",
+    "level": 85,
+    "experience": 1323496520
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u4eca\u5929\u79df\u51fa\u6574\u665a",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 4,
+    "ascendancyClass": 2,
+    "class": "Gladiator",
+    "level": 90,
+    "experience": 1934009687
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u7684\u958b\u6c34\u6709\u6bd2",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 4,
+    "ascendancyClass": 1,
+    "class": "Slayer",
+    "level": 93,
+    "experience": 2456754600
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u6709\u5929\u54e5\u8c6a\u8208\u596e",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 3,
+    "ascendancyClass": 1,
+    "class": "Occultist",
+    "level": 87,
+    "experience": 1557337171
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u7684\u8a72B\u9999\u9999der",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 2,
+    "ascendancyClass": 2,
+    "class": "Deadeye",
+    "level": 88,
+    "experience": 1646943474
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u7684\u98fd\u7cbe\u845b\u683c",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 4,
+    "ascendancyClass": 2,
+    "class": "Gladiator",
+    "level": 90,
+    "experience": 2020310821
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u4eca\u5929\u597d\u5bc2\u5bde\u5436",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 3,
+    "ascendancyClass": 2,
+    "class": "Elementalist",
+    "level": 85,
+    "experience": 1327539830
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u7684\u8089\u819c\u7d66\u6233\u6233",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 3,
+    "ascendancyClass": 1,
+    "class": "Occultist",
+    "level": 88,
+    "experience": 1686079039
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u7684\u963f\u5492\u5370\u8a18",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 3,
+    "ascendancyClass": 2,
+    "class": "Elementalist",
+    "level": 93,
+    "experience": 2457406396
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u4eca\u5929\u6c92\u7a7f\u5167\u8863",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 2,
+    "ascendancyClass": 3,
+    "class": "Pathfinder",
+    "level": 94,
+    "experience": 2658074992
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u556a\u556a\u556a",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 2,
+    "ascendancyClass": 1,
+    "class": "Raider",
+    "level": 86,
+    "experience": 1401896643
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u4e0d\u662f\u5783\u573e\u8ffd\u7375",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 2,
+    "ascendancyClass": 3,
+    "class": "Pathfinder",
+    "level": 85,
+    "experience": 1371194707
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u9b91\u9b91\u9999\u9999\u7684",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 4,
+    "ascendancyClass": 2,
+    "class": "Gladiator",
+    "level": 87,
+    "experience": 1519130326
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u7684\u4e09\u4e5d\u8089\u4fbf",
+    "league": "\u52ab\u76dc\u806f\u76df",
+    "classId": 3,
+    "ascendancyClass": 3,
+    "class": "Necromancer",
+    "level": 86,
+    "experience": 1405608003
+  },
+  {
+    "name": "\u88f8\u5954\u59b9\u59b9\u780d\u5230\u84ec\u840a\u6771\u8def",
+    "league": "\u6a19\u6e96\u6a21\u5f0f",
+    "classId": 3,
+    "ascendancyClass": 3,
+    "class": "Necromancer",
+    "level": 86,
+    "experience": 1400795257
+  }
+]

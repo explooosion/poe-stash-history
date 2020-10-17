@@ -12,7 +12,7 @@ const Crd = styled(Card)`
   width: calc(100% / 4.4);
 `;
 
-function Home() {
+function Dashboard() {
 
   const lineStylesData = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -83,4 +83,4 @@ function Home() {
   )
 }
 
-export default Home;
+export default Dashboard;

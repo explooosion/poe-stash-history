@@ -3,7 +3,8 @@ import { all } from 'redux-saga/effects';
 const sagas = [
   // 'example',
   'auth',
-  'stash',
+  'guild',
+  'account',
 ];
 
 const Sagas = sagas.map(saga => require(`./${saga}`).default());

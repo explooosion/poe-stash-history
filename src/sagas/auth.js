@@ -6,6 +6,7 @@ import { getSessionId } from '../services/Auth';
 
 function* fetchAuth() {
   const response = yield call(getSessionId);
+  console.log('getSessionId', response);
   if (response) {
     yield put({ type: FETCH_AUTH_SUCCESS, payload: response });
   } else {

@@ -8,11 +8,10 @@ const Main = styled.main`
 `;
 
 function History() {
-  // const auth = useSelector(state => state.auth);
-  const stash = useSelector(state => state.stash);
+  const { history } = useSelector(state => state.guild);
   return (
     <Main>
-      <List data={stash.history.entries} />
+      <List data={history} />
     </Main>
   )
 }

@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import dayjs from 'dayjs';
 import { DataTable } from 'primereact/datatable';
 import { Dropdown } from 'primereact/dropdown';
 import { Column } from 'primereact/column';
@@ -21,26 +20,20 @@ const Main = styled.main`
 `;
 
 function List(props) {
-  const [data, setData] = useState([]);
+  const { data } = props;
   const [selectAction, setSelectAction] = useState('added');
 
-  useEffect(() => {
-    setData(props.data.map(p => ({
-      ...p,
-      name: p.account.characterName,
-      time: dayjs.unix(p.time).format('YYYY-MM-DD HH:mm:ss'),
-    })));
-  }, [props.data]);
-
-  const statusFilter = <Dropdown
-    value={selectAction}
-    options={['added', 'removed']}
-    onChange={(e) => setSelectAction(e.value)}
-    itemTemplate={(option) => <span className={`customer-badge status-${option}`}>{option}</span>}
-    placeholder="Select a Status"
-    className="p-column-filter"
-    showClear
-  />;
+  const statusFilter = (
+    <Dropdown
+      value={selectAction}
+      options={['added', 'removed']}
+      onChange={(e) => setSelectAction(e.value)}
+      itemTemplate={(option) => <span className={`customer-badge status-${option}`}>{option}</span>}
+      placeholder="Select a Status"
+      className="p-column-filter"
+      showClear
+    />
+  );
 
   const actionBodyTemplate = (rowData) => {
     const color = rowData.action === 'added' ? 'p-tag-info' : 'p-tag-danger';
@@ -51,7 +44,7 @@ function List(props) {
     <Main>
       <DataTable value={data} paginator rows={10} loading={data.length === 0} header="Stash List" className="p-datatable-sm">
         <Column field="league" header="league"></Column>
-        <Column field="name" header="name"></Column>
+        <Column field="characterName" header="characterName"></Column>
         <Column field="item" header="item"></Column>
         <Column header="action" body={actionBodyTemplate} filter filterElement={statusFilter}></Column>
         <Column field="time" header="time"></Column>

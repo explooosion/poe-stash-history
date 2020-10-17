@@ -24,3 +24,7 @@ yarn start
 ```sh
 yarn build
 ```
+
+# REF
+
+- [poedb.tw API](https://poedb.tw/article.php?id=API)

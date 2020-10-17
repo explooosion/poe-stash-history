@@ -1,14 +1,14 @@
-import Home from '../pages/Home';
+import Dashboard from '../pages/Dashboard';
 import History from '../pages/History';
 import Players from '../pages/Players';
 import Statistics from '../pages/Statistics';
 
 export default [
   {
-    key: 'root',
-    path: '/',
+    key: 'dashboard',
+    path: '/dashboard',
     exact: true,
-    component: Home,
+    component: Dashboard,
     title: '',
   },
   {

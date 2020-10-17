@@ -53,7 +53,7 @@ const List = styled.nav`
 function Menu() {
 
   const list = [
-    { id: 1, label: 'DASHBOARD', url: '/', icon: AiOutlinePieChart, external: false },
+    { id: 1, label: 'DASHBOARD', url: '/dashboard', icon: AiOutlinePieChart, external: false },
     { id: 2, label: 'HISTORY', url: '/history', icon: AiOutlineProfile, external: false },
     { id: 3, label: 'PLAYERS', url: '/players', icon: AiOutlineUser, external: false },
     { id: 4, label: 'STATISTICS', url: '/statistics', icon: AiOutlineTrophy, external: false },
