@@ -25,6 +25,10 @@ yarn start
 yarn build
 ```
 
+```sh
+yarn test
+```
+
 # REF
 
 - [poedb.tw API](https://poedb.tw/article.php?id=API)
