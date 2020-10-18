@@ -18,7 +18,7 @@ export const getCharacters = async (params = {}) =>
  * Get account character info and items
  * @param {object} params { accountName, character }
  */
-export const getCharacterByName = async (params = {}) =>
+export const getItems = async (params = {}) =>
   await axios.get(replaceUrlParams(urlGetItems, params))
     .then(res => res)
     .catch(err => err);

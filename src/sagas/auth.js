@@ -5,12 +5,14 @@ import { FETCH_AUTH, FETCH_AUTH_SUCCESS, FETCH_AUTH_ERROR } from '../reducers/au
 import { getSessionId } from '../services/Auth';
 
 function* fetchAuth() {
+
   const response = yield call(getSessionId);
   console.log('getSessionId', response);
+
   if (response) {
     yield put({ type: FETCH_AUTH_SUCCESS, payload: response });
   } else {
-    yield put({ type: FETCH_AUTH_ERROR, payload: response });
+    yield put({ type: FETCH_AUTH_ERROR });
   }
 }
 
