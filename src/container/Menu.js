@@ -19,7 +19,7 @@ const Container = styled.div`
   height: 98%;
   background: rgba(89, 175, 236, 1);
   background: linear-gradient(180deg, rgba(89, 175, 236, 1) 0%, rgba(37, 140, 213, 1) 45%, rgba(20, 81, 125, 1) 100%);
-  border-radius: .5rem;
+  border-radius: .25rem;
 `;
 
 const List = styled.nav`
@@ -55,7 +55,7 @@ function Menu() {
   const list = [
     { id: 1, label: 'DASHBOARD', url: '/dashboard', icon: AiOutlinePieChart, external: false },
     { id: 2, label: 'HISTORY', url: '/history', icon: AiOutlineProfile, external: false },
-    { id: 3, label: 'PLAYERS', url: '/players', icon: AiOutlineUser, external: false },
+    { id: 3, label: 'MEMBERS', url: '/members', icon: AiOutlineUser, external: false },
     { id: 4, label: 'STATISTICS', url: '/statistics', icon: AiOutlineTrophy, external: false },
     { id: 5, label: 'GITHUB', url: 'https://github.com/explooosion/poe-stash-history', icon: AiOutlineGithub, external: true },
   ];

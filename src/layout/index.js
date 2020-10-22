@@ -22,6 +22,13 @@ const Content = styled.section`
   padding-right: 2rem;
 `;
 
+const Bread = styled(BreadCrumb)`
+  margin-bottom: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+`;
+
 function Layout() {
   const location = useLocation();
 
@@ -55,7 +62,7 @@ function Layout() {
       <Container>
         <Navbar />
         <Content>
-          <BreadCrumb model={breadModel} home={breadHome} style={{ marginBottom: '1rem' }} />
+          <Bread model={breadModel} home={breadHome} />
           <Switch>
             {Routes.map(route => renderRoute(route))}
             <Redirect to="/dashboard" />

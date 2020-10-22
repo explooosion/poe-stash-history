@@ -11,7 +11,8 @@ const Main = styled.header`
 `;
 
 const Title = styled.div`
-  margin-left: 2.5rem;
+  position: absolute;
+  left: 2rem;
   font-weight: normal;
   text-transform: uppercase;
 `;
@@ -19,7 +20,7 @@ const Title = styled.div`
 function Header() {
   return (
     <Main>
-      <Title>DASHBOARD</Title>
+      <Title>Dashboard</Title>
     </Main>
   )
 }
