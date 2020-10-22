@@ -31,7 +31,6 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
 
-
     case FETCH_STASH_HISTORY:
       return { ...state, loading: true };
     case FETCH_STASH_HISTORY_SUCCESS:

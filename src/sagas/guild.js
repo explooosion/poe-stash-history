@@ -25,12 +25,14 @@ import { getCharacters } from '../services/Account';
 
 import Storage from '../boot/Storage';
 
-function* fetchStashHistory() {
+function* fetchStashHistory({ params }) {
+
+  const { id } = params;
 
   let flag = false;
   let payload = {};
 
-  const response = yield call(getStashHistory, { id: 119610 });
+  const response = yield call(getStashHistory, { id });
   console.log('getStashHistory', response);
 
   if (response.status === 200) {
@@ -113,7 +115,7 @@ function* fetchMemberCharacters({ params }) {
   } else {
     function* recursive(datas = []) {
       if (datas.length > 0) {
-        yield delay(1000);
+        yield delay(process.env.REACT_APP_API_QUERY_INTERVAL);
         const target = datas.shift();
         const characters = yield call(fetchMemberCharacter, target);
         payload.push({ characters, accountName: target.accountName });
