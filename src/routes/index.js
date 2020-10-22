@@ -1,6 +1,6 @@
 import Dashboard from '../pages/Dashboard';
 import History from '../pages/History';
-import Players from '../pages/Players';
+import Members from '../pages/Members';
 import Statistics from '../pages/Statistics';
 
 export default [
@@ -19,10 +19,10 @@ export default [
     title: '',
   },
   {
-    key: 'players',
-    path: '/players',
+    key: 'members',
+    path: '/members',
     exact: true,
-    component: Players,
+    component: Members,
     title: '',
   },
   {

@@ -1,11 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { Card } from 'primereact/card';
 import { Chart } from 'primereact/chart';
 
 import theme from '../theme';
 
-const Main = styled.main`
+const Main = styled.section`
 `;
 
 const Crd = styled(Card)`
@@ -13,6 +14,8 @@ const Crd = styled(Card)`
 `;
 
 function Dashboard() {
+
+  const { members } = useSelector(state => state.guild);
 
   const lineStylesData = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -63,7 +66,7 @@ function Dashboard() {
   return (
     <Main>
       <div className="p-d-flex p-jc-md-between">
-        <Crd className="p-mb-2" title="Title" subTitle="SubTitle">
+        <Crd className="p-mb-2" title="總人數" subTitle={String(members.length)}>
           Content
         </Crd>
         <Crd className="p-mb-2" title="Title" subTitle="SubTitle">
@@ -76,7 +79,7 @@ function Dashboard() {
           Content
         </Crd>
       </div>
-      <div className="card" style={{ margin: '2rem' }}>
+      <div className="card" style={{ margin: '3rem' }}>
         <Chart type="line" data={lineStylesData} options={options} />
       </div>
     </Main>
