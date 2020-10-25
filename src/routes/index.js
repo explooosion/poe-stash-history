@@ -1,7 +1,6 @@
 import Dashboard from '../pages/Dashboard';
 import History from '../pages/History';
 import Members from '../pages/Members';
-import Statistics from '../pages/Statistics';
 import Login from '../pages/Login';
 
 export default [
@@ -24,13 +23,6 @@ export default [
     path: '/members',
     exact: true,
     component: Members,
-    title: '',
-  },
-  {
-    key: 'statistics',
-    path: '/statistics',
-    exact: true,
-    component: Statistics,
     title: '',
   },
 ]
