@@ -14,7 +14,7 @@
     "128": "stash_128x128.ico"
   },
   "browser_action": {
-    "default_icon": "cookie.png"
+    "default_icon": "stash.png"
   },
   "background": {
     "scripts": [
