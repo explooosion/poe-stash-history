@@ -5,7 +5,6 @@ export const FETCH_AUTH_ERROR = 'FETCH_AUTH_ERROR';
 const initialState = {
   cookie: null,
   loading: false,
-  error: null,
 };
 
 export default (state = initialState, action) => {

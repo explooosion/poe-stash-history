@@ -15,24 +15,25 @@ const Main = styled.nav`
 const Title = styled.h3`
   position: absolute;
   width: 100%;
+  font-size: 1.25rem;
   text-align: center;
 `;
 
 const Info = styled.div`
   position: absolute;
   right: 0;
+  font-size: 1rem;
 `;
 
 function Navbar() {
 
   const { name, tag } = useSelector(state => state.guild);
-
-  const userName = '變態欸紳士';
+  const { accountName } = useSelector(state => state.account);
 
   return (
     <Main>
       <Title>{tag} {name}</Title>
-      <Info> Welcome, {userName}！</Info>
+      <Info> Welcome, {accountName}！</Info>
     </Main>
   )
 }

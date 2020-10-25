@@ -25,7 +25,6 @@ const initialState = {
   memberCharactersLoading: false,
   memberCharactersFinished: false,
   loading: false,
-  error: null,
 };
 
 export default (state = initialState, action) => {

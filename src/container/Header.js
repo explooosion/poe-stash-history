@@ -13,6 +13,7 @@ const Main = styled.header`
 const Title = styled.div`
   position: absolute;
   left: 2rem;
+  font-size: 1rem;
   font-weight: normal;
   text-transform: uppercase;
 `;

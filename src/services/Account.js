@@ -1,8 +1,17 @@
 import { restApi } from '../boot/axios';
 import { replaceUrlParams } from '../utils';
 
-const urlGetItems = process.env.REACT_APP_GET_ITEMS;
+const urlMyAccount = process.env.REACT_APP_MY_ACCOUNT;
 const urlGetCharacters = process.env.REACT_APP_GET_CHARACTERS;
+const urlGetItems = process.env.REACT_APP_GET_ITEMS;
+
+/**
+ * Get account html to parse account name
+ */
+export const getMyAccount = async (params = {}) =>
+  await restApi.get(replaceUrlParams(urlMyAccount, params))
+    .then(res => res)
+    .catch(err => err);
 
 /**
  * Get account characters

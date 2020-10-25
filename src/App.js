@@ -4,7 +4,7 @@ import { Switch, HashRouter as Router, Route } from 'react-router-dom';
 
 import { FETCH_AUTH } from './reducers/auth';
 import { FETCH_GUILD_PROFILE, FETCH_MEMBER_CHARACTERS } from './reducers/guild';
-// import { FETCH_CHARACTERS, FETCH_ITEMS } from './reducers/account';
+import { FETCH_MY_ACCOUNT } from './reducers/account';
 
 import Layout from './layout';
 
@@ -17,6 +17,7 @@ function App() {
   useEffect(() => {
     dispatch({ type: FETCH_AUTH });
     dispatch({ type: FETCH_GUILD_PROFILE });
+    dispatch({ type: FETCH_MY_ACCOUNT });
     // dispatch({ type: FETCH_ITEMS });
     // dispatch({ type: FETCH_CHARACTERS });
   }, [dispatch]);

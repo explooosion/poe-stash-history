@@ -23,7 +23,7 @@ import {
 import { getStashHistory, getGuildProfile, getGuildId } from '../services/Guild';
 import { getCharacters } from '../services/Account';
 
-import Storage from '../boot/storage';
+import storage from '../boot/storage';
 
 function* fetchStashHistory({ params }) {
 
@@ -56,9 +56,9 @@ function* fetchGuildProfile() {
   let flag = false;
   let payload = {};
 
-  if (Storage.hasIn(STORAGE_GUILD_PROFILE)) {
+  if (storage.hasIn(STORAGE_GUILD_PROFILE)) {
     flag = true;
-    payload = Storage.getItem(STORAGE_GUILD_PROFILE);
+    payload = storage.getItem(STORAGE_GUILD_PROFILE);
     console.log('fetchGuildProfile [Storage]', payload);
   } else {
 
@@ -88,7 +88,7 @@ function* fetchGuildProfile() {
             })).get();
 
           flag = true;
-          Storage.setItem(STORAGE_GUILD_PROFILE, payload);
+          storage.setItem(STORAGE_GUILD_PROFILE, payload);
 
         }
       }
@@ -108,9 +108,9 @@ function* fetchMemberCharacters({ params }) {
   let flag = false;
   let payload = [];
 
-  if (Storage.hasIn(STORAGE_MEMBER_CHARACTERS)) {
+  if (storage.hasIn(STORAGE_MEMBER_CHARACTERS)) {
     flag = true;
-    payload = Storage.getItem(STORAGE_MEMBER_CHARACTERS);
+    payload = storage.getItem(STORAGE_MEMBER_CHARACTERS);
     console.log('fetchMemberCharacters [Storage]', payload);
   } else {
     function* recursive(datas = []) {
@@ -123,7 +123,7 @@ function* fetchMemberCharacters({ params }) {
         yield call(recursive, datas);
       } else {
         flag = true;
-        Storage.setItem(STORAGE_MEMBER_CHARACTERS, payload);
+        storage.setItem(STORAGE_MEMBER_CHARACTERS, payload);
       }
     }
     yield call(recursive, [...params]);
