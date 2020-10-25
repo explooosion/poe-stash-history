@@ -9,9 +9,9 @@
     "https://*/*"
   ],
   "icons": {
-    "16": "cookie.png",
-    "48": "cookie.png",
-    "128": "cookie.png"
+    "16": "stash_16x16.ico",
+    "48": "stash_48x48.ico",
+    "128": "stash_128x128.ico"
   },
   "browser_action": {
     "default_icon": "cookie.png"
