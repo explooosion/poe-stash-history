@@ -64,7 +64,7 @@ export default (state = initialState, action) => {
         const m = member;
         const target = action.payload.find(p => p.accountName === m.accountName);
         m.characters = target ? target.characters : [];
-        m.public = target ? true : false;
+        m.public = target.characters.length > 0 ? true : false;
       });
       return { ...state, loading: false, memberCharactersLoading: false, memberCharactersFinished: true };
     case FETCH_MEMBER_CHARACTERS_ERROR:
