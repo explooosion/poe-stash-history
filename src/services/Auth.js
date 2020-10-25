@@ -23,9 +23,7 @@ export const removeSessionId = () => {
   return new Promise(resolve => {
     if (process.env.NODE_ENV === 'production') {
       if (window.chrome.cookies) {
-        window.chrome.cookies.remove({ url, name }, () => {
-          resolve(window.location.reload());
-        });
+        window.chrome.cookies.remove({ url, name }, () => resolve());
       } else {
         resolve();
       }

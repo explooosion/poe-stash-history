@@ -54,7 +54,7 @@ function Login() {
     window.open('https://web.poe.garena.tw/', '_blank');
   }
 
-  if (cookie) return onRedirect();
+  if (cookie) toggleIsLoading(true);
   if (!delay()) return null;
 
   return (
