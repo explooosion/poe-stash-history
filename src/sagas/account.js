@@ -27,11 +27,9 @@ function* fetchMyAccount() {
   if (storage.hasIn(STORAGE_MY_ACCOUNT)) {
     flag = true;
     payload = storage.getItem(STORAGE_MY_ACCOUNT);
-    console.log('fetchGuildProfile [Storage]', payload);
   } else {
 
     const responseId = yield call(getMyAccount);
-    console.log('getMyAccount', responseId);
 
     if (responseId.status === 200) {
       const $ = cheerio.load(responseId.data);
@@ -57,7 +55,6 @@ function* fetchCharacters({ params }) {
   let payload = {};
 
   const response = yield call(getCharacters, { accountName });
-  console.log('getCharacters', response);
 
   if (response.status === 200) {
     flag = true;
@@ -79,7 +76,6 @@ function* fetchItems({ params }) {
   let payload = {};
 
   const response = yield call(getItems, { accountName, character });
-  console.log('getItems', response);
 
   if (response.status === 200) {
     flag = true;

@@ -33,7 +33,6 @@ function* fetchStashHistory({ params }) {
   let payload = {};
 
   const response = yield call(getStashHistory, { id });
-  console.log('getStashHistory', response);
 
   if (response.status === 200) {
     flag = true;
@@ -59,11 +58,9 @@ function* fetchGuildProfile() {
   if (storage.hasIn(STORAGE_GUILD_PROFILE)) {
     flag = true;
     payload = storage.getItem(STORAGE_GUILD_PROFILE);
-    console.log('fetchGuildProfile [Storage]', payload);
   } else {
 
     const responseId = yield call(getGuildId);
-    console.log('getGuildId', responseId);
 
     if (responseId.status === 200) {
 
@@ -74,7 +71,6 @@ function* fetchGuildProfile() {
 
       if (payload.id) {
         const responseProfile = yield call(getGuildProfile, { id: payload.id });
-        console.log('getGuildProfile', responseProfile);
 
         if (responseProfile.status === 200) {
           const $ = cheerio.load(responseProfile.data);
@@ -89,7 +85,6 @@ function* fetchGuildProfile() {
 
           flag = true;
           storage.setItem(STORAGE_GUILD_PROFILE, payload);
-
         }
       }
     }
@@ -111,7 +106,6 @@ function* fetchMemberCharacters({ params }) {
   if (storage.hasIn(STORAGE_MEMBER_CHARACTERS)) {
     flag = true;
     payload = storage.getItem(STORAGE_MEMBER_CHARACTERS);
-    console.log('fetchMemberCharacters [Storage]', payload);
   } else {
     function* recursive(datas = []) {
       if (datas.length > 0) {

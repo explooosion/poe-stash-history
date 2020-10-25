@@ -18,8 +18,6 @@ function App() {
     dispatch({ type: FETCH_AUTH });
     dispatch({ type: FETCH_GUILD_PROFILE });
     dispatch({ type: FETCH_MY_ACCOUNT });
-    // dispatch({ type: FETCH_ITEMS });
-    // dispatch({ type: FETCH_CHARACTERS });
   }, [dispatch]);
 
   useEffect(() => {
@@ -27,8 +25,6 @@ function App() {
       dispatch({ type: FETCH_MEMBER_CHARACTERS, params: members });
     }
   }, [dispatch, members, memberCharactersLoading, memberCharactersFinished]);
-
-  console.log('ENV', process.env.NODE_ENV);
 
   return (
     <Router>
