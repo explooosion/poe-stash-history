@@ -1,5 +1,6 @@
 {
   "name": "poe-stash-history",
+  "description": "A dashboard for Path Of Exile stash history.",
   "homepage": "https://robby570.tw/poe-stash-history/",
   "version": "0.1.0",
   "license": "MIT",

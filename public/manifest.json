@@ -1,19 +1,20 @@
 {
   "name": "POE Stash History",
-  "version": "0.8",
-  "description": "POE Stash History",
+  "version": "0.1",
+  "description": "A dashboard for Path Of Exile stash history",
   "permissions": [
     "cookies",
     "tabs",
-    "http://*/*",
-    "https://*/*"
+    "http://web.poe.garena.tw/*",
+    "https://web.poe.garena.tw/*"
   ],
   "icons": {
-    "16": "stash_16x16.ico",
-    "48": "stash_48x48.ico",
-    "128": "stash_128x128.ico"
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
   },
   "browser_action": {
+    "name": "POE Stash History",
     "default_icon": "stash.png"
   },
   "background": {
