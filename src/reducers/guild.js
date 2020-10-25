@@ -33,7 +33,8 @@ export default (state = initialState, action) => {
     case FETCH_STASH_HISTORY:
       return { ...state, loading: true };
     case FETCH_STASH_HISTORY_SUCCESS:
-      const history = action.payload.map(p => {
+      const history = action.payload.map(payload => {
+        const p = payload;
         const { characterName: name, league } = p;
         const member = state.members.find(m => _.find(m.characters, { name }));
         if (member) {
@@ -59,7 +60,8 @@ export default (state = initialState, action) => {
     case FETCH_MEMBER_CHARACTERS:
       return { ...state, loading: true, memberCharactersLoading: true };
     case FETCH_MEMBER_CHARACTERS_SUCCESS:
-      state.members.forEach(m => {
+      state.members.forEach(member => {
+        const m = member;
         const target = action.payload.find(p => p.accountName === m.accountName);
         m.characters = target ? target.characters : [];
         m.public = target ? true : false;

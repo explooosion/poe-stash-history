@@ -15,7 +15,7 @@ export default (state = initialState, action) => {
     case FETCH_EXAMPLE_SUCCESS:
       return { ...state, lists: action.payload, loading: false };
     case FETCH_EXAMPLE_ERROR:
-      return { ...state, error: action.payload, loading: false, };
+      return { ...state, error: action.payload, loading: false };
     default:
       return state;
   }

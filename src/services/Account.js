@@ -8,8 +8,8 @@ const urlGetItems = process.env.REACT_APP_GET_ITEMS;
 /**
  * Get account html to parse account name
  */
-export const getMyAccount = async (params = {}) =>
-  await restApi.get(replaceUrlParams(urlMyAccount, params))
+export const getMyAccount = (params = {}) =>
+  restApi.get(replaceUrlParams(urlMyAccount, params))
     .then(res => res)
     .catch(err => err);
 
@@ -17,8 +17,8 @@ export const getMyAccount = async (params = {}) =>
  * Get account characters
  * @param {object} params { accountName }
  */
-export const getCharacters = async (params = {}) =>
-  await restApi.get(replaceUrlParams(urlGetCharacters, params))
+export const getCharacters = (params = {}) =>
+  restApi.get(replaceUrlParams(urlGetCharacters, params))
     .then(res => res)
     .catch(err => err);
 
@@ -26,7 +26,7 @@ export const getCharacters = async (params = {}) =>
  * Get account character info and items
  * @param {object} params { accountName, character }
  */
-export const getItems = async (params = {}) =>
-  await restApi.get(replaceUrlParams(urlGetItems, params))
+export const getItems = (params = {}) =>
+  restApi.get(replaceUrlParams(urlGetItems, params))
     .then(res => res)
     .catch(err => err);

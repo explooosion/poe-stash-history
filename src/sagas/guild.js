@@ -64,8 +64,7 @@ function* fetchGuildProfile() {
 
     if (responseId.status === 200) {
 
-      const $ = cheerio.load(responseId.data);
-      payload.url = $('.profile-box.profile a').attr('href');
+      payload.url = cheerio.load(responseId.data)('.profile-box.profile a').attr('href');
       // eslint-disable-next-line
       payload.id = payload.url.match(/([^\/]*)\/*$/)[1];
 
@@ -107,19 +106,6 @@ function* fetchMemberCharacters({ params }) {
     flag = true;
     payload = storage.getItem(STORAGE_MEMBER_CHARACTERS);
   } else {
-    function* recursive(datas = []) {
-      if (datas.length > 0) {
-        yield delay(process.env.REACT_APP_API_QUERY_INTERVAL);
-        const target = datas.shift();
-        const characters = yield call(fetchMemberCharacter, target);
-        payload.push({ characters, accountName: target.accountName });
-        console.log(`[ ${params.length - datas.length}/${params.length} ] fetchMemberCharacter`);
-        yield call(recursive, datas);
-      } else {
-        flag = true;
-        storage.setItem(STORAGE_MEMBER_CHARACTERS, payload);
-      }
-    }
     yield call(recursive, [...params]);
   }
 
@@ -128,6 +114,20 @@ function* fetchMemberCharacters({ params }) {
   } else {
     yield put({ type: FETCH_MEMBER_CHARACTERS_ERROR });
   }
+
+  function* recursive(datas = []) {
+    if (datas.length > 0) {
+      yield delay(process.env.REACT_APP_API_QUERY_INTERVAL);
+      const target = datas.shift();
+      const characters = yield call(fetchMemberCharacter, target);
+      payload.push({ characters, accountName: target.accountName });
+      console.log(`[ ${params.length - datas.length}/${params.length} ] fetchMemberCharacter`);
+      yield call(recursive, datas);
+    } else {
+      flag = true;
+      storage.setItem(STORAGE_MEMBER_CHARACTERS, payload);
+    }
+  }
 }
 
 function* fetchMemberCharacter({ accountName }) {
@@ -135,7 +135,7 @@ function* fetchMemberCharacter({ accountName }) {
   return response.status === 200 ? response.data : {};
 }
 
-export default function* () {
+export default function* Guild() {
   yield takeLatest(FETCH_GUILD_PROFILE, fetchGuildProfile);
   yield takeLatest(FETCH_STASH_HISTORY, fetchStashHistory);
   yield takeLatest(FETCH_MEMBER_CHARACTERS, fetchMemberCharacters);

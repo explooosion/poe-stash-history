@@ -24,43 +24,43 @@ function Dashboard() {
         label: 'First Dataset',
         data: [65, 59, 80, 81, 56, 55, 40],
         fill: false,
-        borderColor: '#42A5F5'
+        borderColor: '#42A5F5',
       },
       {
         label: 'Second Dataset',
         data: [28, 48, 40, 19, 86, 27, 90],
         fill: false,
         borderDash: [5, 5],
-        borderColor: '#66BB6A'
+        borderColor: '#66BB6A',
       },
       {
         label: 'Third Dataset',
         data: [12, 51, 62, 33, 21, 62, 45],
         fill: true,
         borderColor: '#FFA726',
-        backgroundColor: 'rgba(255,167,38,0.2)'
-      }
-    ]
+        backgroundColor: 'rgba(255,167,38,0.2)',
+      },
+    ],
   };
 
   const options = {
     legend: {
       labels: {
         fontColor: theme.white,
-      }
+      },
     },
     scales: {
       xAxes: [{
         ticks: {
           fontColor: theme.white,
-        }
+        },
       }],
       yAxes: [{
         ticks: {
           fontColor: theme.white,
-        }
-      }]
-    }
+        },
+      }],
+    },
   };
 
   return (

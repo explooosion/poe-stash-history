@@ -82,7 +82,7 @@ function Layout() {
           </Switch>
         </Content>
       </Container>
-    </Main >
+    </Main>
   )
 }
 

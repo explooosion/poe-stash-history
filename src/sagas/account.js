@@ -89,7 +89,7 @@ function* fetchItems({ params }) {
   }
 }
 
-export default function* () {
+export default function* Account() {
   yield takeLatest(FETCH_MY_ACCOUNT, fetchMyAccount);
   yield takeLatest(FETCH_CHARACTERS, fetchCharacters);
   yield takeLatest(FETCH_ITEMS, fetchItems);

@@ -7,8 +7,8 @@ const URL = '';
 /**
  * FETCH USERS - redux saga
  */
-export const getUsers = async () =>
-  await restApi.get(URL)
+export const getUsers = () =>
+  restApi.get(URL)
     .then(res => res)
     .catch(err => err);
 

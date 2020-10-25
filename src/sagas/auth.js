@@ -15,6 +15,6 @@ function* fetchAuth() {
   }
 }
 
-export default function* () {
+export default function* Auth() {
   yield takeLatest(FETCH_AUTH, fetchAuth);
 }
