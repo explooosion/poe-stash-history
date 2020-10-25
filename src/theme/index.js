@@ -16,6 +16,7 @@ export const layout = {
 
 export const color = {
   white: '#fefefe',
+  gray: '#444',
   dark: '#17212F',
   dark2: '#1F2E3F',
   dark3: '#304562',

@@ -1,14 +1,22 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 import List from '../container/History/List';
 
-const Main = styled.main`
+import { FETCH_STASH_HISTORY } from '../reducers/guild';
+
+const Main = styled.section`
 `;
 
 function History() {
-  const { history } = useSelector(state => state.guild);
+  const dispatch = useDispatch();
+  const { history, id } = useSelector(state => state.guild);
+
+  useEffect(() => {
+    if (id) dispatch({ type: FETCH_STASH_HISTORY, params: { id } });
+  }, [dispatch, id]);
+
   return (
     <Main>
       <List data={history} />

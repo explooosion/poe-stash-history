@@ -20,7 +20,7 @@ const Title = styled.div`
 function Header() {
   return (
     <Main>
-      <Title>Dashboard</Title>
+      <Title>POE STASH HISTORY</Title>
     </Main>
   )
 }

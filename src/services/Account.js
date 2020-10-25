@@ -1,5 +1,4 @@
-import axios from 'axios';
-
+import { restApi } from '../boot/axios';
 import { replaceUrlParams } from '../utils';
 
 const urlGetItems = process.env.REACT_APP_GET_ITEMS;
@@ -10,7 +9,7 @@ const urlGetCharacters = process.env.REACT_APP_GET_CHARACTERS;
  * @param {object} params { accountName }
  */
 export const getCharacters = async (params = {}) =>
-  await axios.get(replaceUrlParams(urlGetCharacters, params))
+  await restApi.get(replaceUrlParams(urlGetCharacters, params))
     .then(res => res)
     .catch(err => err);
 
@@ -19,6 +18,6 @@ export const getCharacters = async (params = {}) =>
  * @param {object} params { accountName, character }
  */
 export const getItems = async (params = {}) =>
-  await axios.get(replaceUrlParams(urlGetItems, params))
+  await restApi.get(replaceUrlParams(urlGetItems, params))
     .then(res => res)
     .catch(err => err);

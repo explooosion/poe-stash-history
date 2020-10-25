@@ -1,7 +1,7 @@
 import { call, put, takeLatest, delay } from 'redux-saga/effects';
-import dayjs from 'dayjs';
 import cheerio from 'cheerio';
 import _ from 'lodash';
+import { fromUnixTime, format } from 'date-fns';
 
 import {
   FETCH_GUILD_PROFILE,
@@ -23,7 +23,7 @@ import {
 import { getStashHistory, getGuildProfile, getGuildId } from '../services/Guild';
 import { getCharacters } from '../services/Account';
 
-import Storage from '../boot/Storage';
+import Storage from '../boot/storage';
 
 function* fetchStashHistory({ params }) {
 
@@ -40,7 +40,7 @@ function* fetchStashHistory({ params }) {
     payload = response.data.entries.map(data => ({
       ..._.omit(data, ['account', 'time']),
       ...data.account,
-      time: dayjs.unix(data.time).format('YYYY-MM-DD HH:mm:ss'),
+      time: format(fromUnixTime(data.time), 'yyyy-MM-dd HH:mm:ss'),
     }));
   }
 

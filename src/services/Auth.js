@@ -8,13 +8,29 @@ export const getSessionId = () => {
     if (process.env.NODE_ENV === 'production') {
       if (window.chrome.cookies) {
         window.chrome.cookies.get({ url, name }, cookies => {
-          resolve(cookies ?? POESESSID);
+          resolve(cookies);
         });
       } else {
         resolve(POESESSID);
       }
     } else {
       resolve(POESESSID);
+    }
+  });
+}
+
+export const removeSessionId = () => {
+  return new Promise(resolve => {
+    if (process.env.NODE_ENV === 'production') {
+      if (window.chrome.cookies) {
+        window.chrome.cookies.remove({ url, name }, () => {
+          resolve(window.location.reload());
+        });
+      } else {
+        resolve();
+      }
+    } else {
+      resolve();
     }
   });
 }

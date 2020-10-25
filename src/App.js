@@ -14,14 +14,10 @@ function App() {
 
   const { members, memberCharactersLoading, memberCharactersFinished } = useSelector(state => state.guild);
 
-  if (!window.chrome.cookies && window.chrome.experimental) {
-    window.chrome.cookies = window.chrome.experimental.cookies;
-  }
-
   useEffect(() => {
     dispatch({ type: FETCH_AUTH });
-    // dispatch({ type: FETCH_ITEMS });
     dispatch({ type: FETCH_GUILD_PROFILE });
+    // dispatch({ type: FETCH_ITEMS });
     // dispatch({ type: FETCH_CHARACTERS });
   }, [dispatch]);
 

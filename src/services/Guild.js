@@ -1,5 +1,4 @@
-import axios from 'axios';
-
+import { restApi } from '../boot/axios';
 import { replaceUrlParams } from '../utils';
 
 const urlMyAccount = process.env.REACT_APP_MY_ACCOUNT;
@@ -10,7 +9,7 @@ const urlGuildProfile = process.env.REACT_APP_GET_GUILD_PROFILE;
  * Get account html to parse guidid
  */
 export const getGuildId = async (params = {}) =>
-  await axios.get(replaceUrlParams(urlMyAccount, params))
+  await restApi.get(replaceUrlParams(urlMyAccount, params))
     .then(res => res)
     .catch(err => err);
 
@@ -19,7 +18,7 @@ export const getGuildId = async (params = {}) =>
  * @param {object} params { id }
  */
 export const getStashHistory = async (params = {}) =>
-  await axios.get(replaceUrlParams(urlStashHistory, params))
+  await restApi.get(replaceUrlParams(urlStashHistory, params))
     .then(res => res)
     .catch(err => err);
 
@@ -28,6 +27,6 @@ export const getStashHistory = async (params = {}) =>
  * @param {object} params { id }
  */
 export const getGuildProfile = async (params = {}) =>
-  await axios.get(replaceUrlParams(urlGuildProfile, params))
+  await restApi.get(replaceUrlParams(urlGuildProfile, params))
     .then(res => res)
     .catch(err => err);

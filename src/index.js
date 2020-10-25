@@ -7,6 +7,10 @@ import App from './App';
 import store from './store';
 import theme from './theme';
 
+if (!window.chrome.cookies && window.chrome.experimental) {
+  window.chrome.cookies = window.chrome.experimental.cookies;
+}
+
 const GlobalStyle = createGlobalStyle`
 
   *,

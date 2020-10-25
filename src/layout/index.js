@@ -1,10 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useMemo } from 'react';
+import { useSelector } from 'react-redux';
 import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import styled from 'styled-components';
 import { BreadCrumb } from 'primereact/breadcrumb';
+import _ from 'lodash';
 
-import Routes from '../routes';
+import Routes, { GlobaleRoutes } from '../routes';
 
 import Header from '../container/Header';
 import Menu from '../container/Menu';
@@ -30,42 +31,54 @@ const Bread = styled(BreadCrumb)`
 `;
 
 function Layout() {
-  const location = useLocation();
+  const { pathname } = useLocation();
+  const { cookie } = useSelector(state => state.auth);
 
-  const breadModel = location.pathname.substring(1).split('/').map(p => ({ label: p.toUpperCase() }));
+  const breadModel = useMemo(() => pathname.substring(1).split('/').map(p => ({ label: p.toUpperCase() })), [pathname]);
   const breadHome = { icon: 'pi pi-home', url: '/' };
 
   const renderRoute = route => {
-    const { key, path, exact, component: Component, title } = route;
+    const { key, path, exact, component: Component } = route;
+    return (<Route key={key} exact={exact} path={path} component={Component} />);
+  }
+
+  const renderRoutes = () => {
     return (
-      <Route
-        key={key}
-        exact={exact}
-        path={path}
-        title={title}
-        render={props => (
-          <>
-            <Helmet>
-              <title>POE STASH HISTORY</title>
-            </Helmet>
-            <Component {...props} />
-          </>
-        )}
-      />
+      <>
+        {Routes.map(route => renderRoute(route))}
+        <Redirect to="/dashboard" />
+      </>
+    );
+  }
+
+  const renderGlobalRoutes = () => {
+    return (
+      <>
+        {GlobaleRoutes.map(route => renderRoute(route))}
+        <Redirect to="/login" />
+      </>
+    );
+  }
+
+  if (_.isNull(cookie)) {
+    return (
+      <Main>
+        <Header />
+        {renderGlobalRoutes()}
+      </Main>
     );
   }
 
   return (
     <Main>
-      <Menu />
       <Header />
+      <Menu />
       <Container>
         <Navbar />
         <Content>
           <Bread model={breadModel} home={breadHome} />
           <Switch>
-            {Routes.map(route => renderRoute(route))}
-            <Redirect to="/dashboard" />
+            {renderRoutes()}
           </Switch>
         </Content>
       </Container>

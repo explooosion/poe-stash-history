@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { AiOutlinePieChart, AiOutlineProfile, AiOutlineGithub, AiOutlineUser, AiOutlineTrophy } from 'react-icons/ai';
 import { transitions } from 'polished';
@@ -50,15 +50,17 @@ const List = styled.nav`
   }
 `;
 
+const list = [
+  { id: 1, label: 'DASHBOARD', url: '/dashboard', icon: AiOutlinePieChart, external: false },
+  { id: 2, label: 'HISTORY', url: '/history', icon: AiOutlineProfile, external: false },
+  { id: 3, label: 'MEMBERS', url: '/members', icon: AiOutlineUser, external: false },
+  { id: 4, label: 'STATISTICS', url: '/statistics', icon: AiOutlineTrophy, external: false },
+  { id: 5, label: 'GITHUB', url: 'https://github.com/explooosion/poe-stash-history', icon: AiOutlineGithub, external: true },
+];
+
 function Menu() {
 
-  const list = [
-    { id: 1, label: 'DASHBOARD', url: '/dashboard', icon: AiOutlinePieChart, external: false },
-    { id: 2, label: 'HISTORY', url: '/history', icon: AiOutlineProfile, external: false },
-    { id: 3, label: 'MEMBERS', url: '/members', icon: AiOutlineUser, external: false },
-    { id: 4, label: 'STATISTICS', url: '/statistics', icon: AiOutlineTrophy, external: false },
-    { id: 5, label: 'GITHUB', url: 'https://github.com/explooosion/poe-stash-history', icon: AiOutlineGithub, external: true },
-  ];
+  const { pathname } = useLocation();
 
   const renderItem = (item) => {
     const { id, label, url, icon: Icon, external } = item;
@@ -69,7 +71,7 @@ function Menu() {
         </a>
       ) :
       (
-        <Link key={`menu-item-${id}`} to={url}>
+        <Link key={`menu-item-${id}`} to={url} replace={url === pathname}>
           <Icon />{label}
         </Link>
       );

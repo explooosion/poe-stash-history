@@ -2,6 +2,7 @@ import Dashboard from '../pages/Dashboard';
 import History from '../pages/History';
 import Members from '../pages/Members';
 import Statistics from '../pages/Statistics';
+import Login from '../pages/Login';
 
 export default [
   {
@@ -30,6 +31,16 @@ export default [
     path: '/statistics',
     exact: true,
     component: Statistics,
+    title: '',
+  },
+]
+
+export const GlobaleRoutes = [
+  {
+    key: 'login',
+    path: '/login',
+    exact: false,
+    component: Login,
     title: '',
   },
 ]
