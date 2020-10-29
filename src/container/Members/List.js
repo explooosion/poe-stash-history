@@ -100,7 +100,7 @@ function List(props) {
     return <span className={`p-tag ${color}`}>{label}</span>;
   }
 
-  const charactersLenBodyTemplate = (rowData) => rowData?.characters?.length ?? 'Unknow';
+  const charactersLenBodyTemplate = (rowData) => rowData?.characters?.length ?? '-';
 
   return (
     <Main>
