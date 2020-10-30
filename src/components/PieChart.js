@@ -6,12 +6,11 @@ import tinycolor from "tinycolor2";
 import _ from "lodash";
 
 const Main = styled.section`
-  padding: 1rem 0;
   width: 100%;
 `;
 
 function PieChart(props) {
-  const { datas, title, type } = props;
+  const { width, height, datas, title, type } = props;
 
   const colorBase = _.map(datas, () => tinycolor.random());
   const borderColor = _.map(colorBase, (c) => c.setAlpha(0.8).toRgbString());
@@ -36,7 +35,7 @@ function PieChart(props) {
       datalabels: {
         color: "#fff",
         font: {
-          size: 13,
+          size: 12,
         },
         textAlign: "center",
         formatter: (v, { dataIndex }) => `${v}\n${data.labels[dataIndex]}`,
@@ -45,30 +44,37 @@ function PieChart(props) {
     title: {
       display: true,
       text: title,
-      fontSize: 22,
+      fontSize: 20,
       fontColor: "#fff",
     },
     legend: {
-      labels: {
-        fontColor: "#fff",
-        fontSize: 14,
-      },
+      display: false,
     },
   };
 
   return (
     <Main>
-      <Chart type={type} data={data} options={options} />
+      <Chart
+        width={width}
+        height={height}
+        type={type}
+        data={data}
+        options={options}
+      />
     </Main>
   );
 }
 
 PieChart.defaultProps = {
+  width: "",
+  height: "",
   title: "",
   type: "pie", // doughnut
 };
 
 PieChart.propTypes = {
+  width: propTypes.oneOf([propTypes.number, propTypes.string]),
+  height: propTypes.oneOf([propTypes.number, propTypes.string]),
   title: propTypes.string,
   type: propTypes.string,
   datas: propTypes.array.isRequired,

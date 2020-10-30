@@ -6,12 +6,11 @@ import tinycolor from "tinycolor2";
 import _ from "lodash";
 
 const Main = styled.section`
-  padding: 1rem 0;
   width: 100%;
 `;
 
 function BarChart(props) {
-  const { datas, title, horizontal } = props;
+  const { width, height, datas, title, horizontal } = props;
 
   const colorBase = _.map(datas, () => tinycolor.random());
   const borderColor = _.map(colorBase, (c) => c.setAlpha(0.8).toRgbString());
@@ -23,7 +22,7 @@ function BarChart(props) {
     labels: _.map(datas, (cg) => cg.label),
     datasets: [
       {
-        borderWidth: 2,
+        borderWidth: 1,
         borderColor,
         backgroundColor,
         data: _.map(datas, (cg) => cg.value),
@@ -36,14 +35,14 @@ function BarChart(props) {
       datalabels: {
         color: "#fff",
         font: {
-          size: 14,
+          size: 12,
         },
       },
     },
     title: {
       display: true,
       text: title,
-      fontSize: 22,
+      fontSize: 20,
       fontColor: "#fff",
     },
     legend: {
@@ -78,6 +77,8 @@ function BarChart(props) {
   return (
     <Main>
       <Chart
+        width={width}
+        height={height}
         type={horizontal ? "horizontalBar" : "bar"}
         data={data}
         options={options}
@@ -87,11 +88,15 @@ function BarChart(props) {
 }
 
 BarChart.defaultProps = {
+  width: "",
+  height: "",
   title: "",
   horizontal: false,
 };
 
 BarChart.propTypes = {
+  width: propTypes.oneOf([propTypes.number, propTypes.string]),
+  height: propTypes.oneOf([propTypes.number, propTypes.string]),
   title: propTypes.string,
   horizontal: propTypes.bool,
   datas: propTypes.array.isRequired,
