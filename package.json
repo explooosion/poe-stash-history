@@ -19,7 +19,7 @@
     "lint-staged": "^10.5.0",
     "lodash": "^4.17.20",
     "polished": "^4.0.3",
-    "prettier": "^2.1.2",
+    "prettier": "2.1.2",
     "primeflex": "^2.0.0",
     "primeicons": "^4.0.0",
     "primereact": "^5.0.1",
