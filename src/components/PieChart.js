@@ -15,14 +15,14 @@ function PieChart(props) {
   const colorBase = _.map(datas, () => tinycolor.random());
   const borderColor = _.map(colorBase, (c) => c.setAlpha(0.8).toRgbString());
   const backgroundColor = _.map(colorBase, (c) =>
-    c.setAlpha(0.2).toRgbString()
+    c.setAlpha(0.3).toRgbString()
   );
 
   const data = {
     labels: _.map(datas, (cg) => cg.label),
     datasets: [
       {
-        borderWidth: 2,
+        borderWidth: 1,
         borderColor,
         backgroundColor,
         data: _.map(datas, (cg) => cg.value),
@@ -35,7 +35,7 @@ function PieChart(props) {
       datalabels: {
         color: "#fff",
         font: {
-          size: 12,
+          size: 13,
         },
         textAlign: "center",
         formatter: (v, { dataIndex }) => `${v}\n${data.labels[dataIndex]}`,
@@ -46,6 +46,7 @@ function PieChart(props) {
       text: title,
       fontSize: 20,
       fontColor: "#fff",
+      padding: 20,
     },
     legend: {
       display: false,
@@ -73,8 +74,8 @@ PieChart.defaultProps = {
 };
 
 PieChart.propTypes = {
-  width: propTypes.oneOf([propTypes.number, propTypes.string]),
-  height: propTypes.oneOf([propTypes.number, propTypes.string]),
+  width: propTypes.oneOfType([propTypes.number, propTypes.string]),
+  height: propTypes.oneOfType([propTypes.number, propTypes.string]),
   title: propTypes.string,
   type: propTypes.string,
   datas: propTypes.array.isRequired,

@@ -15,7 +15,7 @@ function BarChart(props) {
   const colorBase = _.map(datas, () => tinycolor.random());
   const borderColor = _.map(colorBase, (c) => c.setAlpha(0.8).toRgbString());
   const backgroundColor = _.map(colorBase, (c) =>
-    c.setAlpha(0.2).toRgbString()
+    c.setAlpha(0.3).toRgbString()
   );
 
   const data = {
@@ -35,7 +35,7 @@ function BarChart(props) {
       datalabels: {
         color: "#fff",
         font: {
-          size: 12,
+          size: 13,
         },
       },
     },
@@ -95,8 +95,8 @@ BarChart.defaultProps = {
 };
 
 BarChart.propTypes = {
-  width: propTypes.oneOf([propTypes.number, propTypes.string]),
-  height: propTypes.oneOf([propTypes.number, propTypes.string]),
+  width: propTypes.oneOfType([propTypes.number, propTypes.string]),
+  height: propTypes.oneOfType([propTypes.number, propTypes.string]),
   title: propTypes.string,
   horizontal: propTypes.bool,
   datas: propTypes.array.isRequired,
