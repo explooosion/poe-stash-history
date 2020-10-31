@@ -2,16 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
-import CharJS from "chart.js";
-import ChartDataLabels from "chartjs-plugin-datalabels";
 
 import App from "./App";
 import store from "./store";
 import theme from "./theme";
-
-CharJS.plugins.register({
-  ChartDataLabels,
-});
 
 if (!window.chrome.cookies && window.chrome.experimental) {
   window.chrome.cookies = window.chrome.experimental.cookies;
