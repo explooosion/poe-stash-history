@@ -23,7 +23,7 @@ function Header() {
     <Main>
       <Title>POE STASH HISTORY</Title>
     </Main>
-  )
+  );
 }
 
 export default Header;

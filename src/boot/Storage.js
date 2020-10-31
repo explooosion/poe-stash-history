@@ -1,7 +1,6 @@
 import _ from 'lodash';
 
 export default class Storage {
-
   static setItem(key, value) {
     return localStorage.setItem(key, JSON.stringify(value));
   }

@@ -6,8 +6,7 @@ import List from '../container/History/List';
 
 import { FETCH_STASH_HISTORY } from '../reducers/guild';
 
-const Main = styled.section`
-`;
+const Main = styled.section``;
 
 function History() {
   const dispatch = useDispatch();
@@ -21,7 +20,7 @@ function History() {
     <Main>
       <List data={history} />
     </Main>
-  )
+  );
 }
 
 export default History;

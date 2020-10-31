@@ -26,16 +26,17 @@ const Info = styled.div`
 `;
 
 function Navbar() {
-
   const { name, tag } = useSelector(state => state.guild);
   const { accountName } = useSelector(state => state.account);
 
   return (
     <Main>
-      <Title>{tag} {name}</Title>
+      <Title>
+        {tag} {name}
+      </Title>
       <Info> Welcome, {accountName}！</Info>
     </Main>
-  )
+  );
 }
 
 export default Navbar;

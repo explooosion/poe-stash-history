@@ -7,7 +7,6 @@ import { Dropdown } from 'primereact/dropdown';
 import { InputText } from 'primereact/inputtext';
 
 const Main = styled.div`
-
   table {
     font-size: 14px;
 
@@ -52,7 +51,10 @@ const Main = styled.div`
 function List(props) {
   const { data } = props;
 
-  const isPublics = [{ label: 'PUBLIC', value: true }, { label: 'PRIVATE', value: false }];
+  const isPublics = [
+    { label: 'PUBLIC', value: true },
+    { label: 'PRIVATE', value: false },
+  ];
   const [isPublic, setIsPublic] = useState('');
 
   const memberTypes = ['Leader', 'Officer', 'Member'];
@@ -66,7 +68,9 @@ function List(props) {
     <Dropdown
       value={isPublic}
       options={isPublics}
-      onChange={({ value }) => tbEl.current.filter(value, 'public', 'equals') || setIsPublic(value)}
+      onChange={({ value }) =>
+        tbEl.current.filter(value, 'public', 'equals') || setIsPublic(value)
+      }
       className="p-column-filter"
       placeholder="All"
       showClear
@@ -77,7 +81,10 @@ function List(props) {
     <Dropdown
       value={memberType}
       options={memberTypes}
-      onChange={({ value }) => tbEl.current.filter(value, 'memberType', 'equals') || setMemberType(value)}
+      onChange={({ value }) =>
+        tbEl.current.filter(value, 'memberType', 'equals') ||
+        setMemberType(value)
+      }
       className="p-column-filter"
       placeholder="All"
       showClear
@@ -88,19 +95,23 @@ function List(props) {
     <InputText
       style={{ width: '100%' }}
       value={accountName}
-      onChange={(e) => tbEl.current.filter(e.target.value, 'accountName', 'contains') || setAccountName(e.target.value)}
+      onChange={e =>
+        tbEl.current.filter(e.target.value, 'accountName', 'contains') ||
+        setAccountName(e.target.value)
+      }
     />
   );
 
   const idBodyTemplate = (rowData, column) => column.rowIndex + 1;
 
-  const publicBodyTemplate = (rowData) => {
+  const publicBodyTemplate = rowData => {
     const color = rowData.public ? 'p-tag-info' : 'p-tag-danger';
     const { label } = rowData.public ? isPublics[0] : isPublics[1];
     return <span className={`p-tag ${color}`}>{label}</span>;
-  }
+  };
 
-  const charactersLenBodyTemplate = (rowData) => rowData?.characters?.length ?? '-';
+  const charactersLenBodyTemplate = rowData =>
+    rowData?.characters?.length ?? '-';
 
   return (
     <Main>
@@ -114,21 +125,42 @@ function List(props) {
         className="p-datatable-sm"
       >
         <Column field="#" header="#" body={idBodyTemplate}></Column>
-        <Column field="public" header="Public" body={publicBodyTemplate} filter filterElement={publicFilter}></Column>
-        <Column field="memberType" header="Member Type" filter filterElement={memberTypeFilter}></Column>
-        <Column field="accountName" header="Account Name" filter filterElement={accountNameFilter}></Column>
-        <Column field="charactersLen" header="Total Characters" body={charactersLenBodyTemplate}></Column>
+        <Column
+          field="public"
+          header="Public"
+          body={publicBodyTemplate}
+          filter
+          filterElement={publicFilter}
+        ></Column>
+        <Column
+          field="memberType"
+          header="Member Type"
+          filter
+          filterElement={memberTypeFilter}
+        ></Column>
+        <Column
+          field="accountName"
+          header="Account Name"
+          filter
+          filterElement={accountNameFilter}
+        ></Column>
+        <Column field="challenge" header="Challenge"></Column>
+        <Column
+          field="charactersLen"
+          header="Total Characters"
+          body={charactersLenBodyTemplate}
+        ></Column>
       </DataTable>
     </Main>
-  )
+  );
 }
 
 List.propTypes = {
   data: PropTypes.array,
-}
+};
 
 List.defaultProps = {
   data: [],
-}
+};
 
 export default List;

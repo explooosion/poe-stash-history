@@ -25,7 +25,7 @@ export default [
     component: Members,
     title: '',
   },
-]
+];
 
 export const GlobaleRoutes = [
   {
@@ -35,4 +35,4 @@ export const GlobaleRoutes = [
     component: Login,
     title: '',
   },
-]
+];

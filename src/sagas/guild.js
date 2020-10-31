@@ -7,26 +7,26 @@ import {
   FETCH_GUILD_PROFILE,
   FETCH_GUILD_PROFILE_SUCCESS,
   FETCH_GUILD_PROFILE_ERROR,
-
   FETCH_STASH_HISTORY,
   FETCH_STASH_HISTORY_SUCCESS,
   FETCH_STASH_HISTORY_ERROR,
-
   FETCH_MEMBER_CHARACTERS,
   FETCH_MEMBER_CHARACTERS_SUCCESS,
   FETCH_MEMBER_CHARACTERS_ERROR,
-
   STORAGE_GUILD_PROFILE,
   STORAGE_MEMBER_CHARACTERS,
 } from '../reducers/guild';
 
-import { getStashHistory, getGuildProfile, getGuildId } from '../services/Guild';
+import {
+  getStashHistory,
+  getGuildProfile,
+  getGuildId,
+} from '../services/Guild';
 import { getCharacters } from '../services/Account';
 
 import storage from '../boot/storage';
 
 function* fetchStashHistory({ params }) {
-
   const { id } = params;
 
   let flag = false;
@@ -51,7 +51,6 @@ function* fetchStashHistory({ params }) {
 }
 
 function* fetchGuildProfile() {
-
   let flag = false;
   let payload = {};
 
@@ -59,12 +58,12 @@ function* fetchGuildProfile() {
     flag = true;
     payload = storage.getItem(STORAGE_GUILD_PROFILE);
   } else {
-
     const responseId = yield call(getGuildId);
 
     if (responseId.status === 200) {
-
-      payload.url = cheerio.load(responseId.data)('.profile-box.profile a').attr('href');
+      payload.url = cheerio
+        .load(responseId.data)('.profile-box.profile a')
+        .attr('href');
       // eslint-disable-next-line
       payload.id = payload.url.match(/([^\/]*)\/*$/)[1];
 
@@ -80,14 +79,22 @@ function* fetchGuildProfile() {
             .map((i, e) => ({
               accountName: $(e).find('a').text(),
               memberType: $(e).find('.memberType').text(),
-            })).get();
+              challenge:
+                Number(
+                  $(e)
+                    .find('.profile-link')
+                    .attr('class')
+                    ?.split(' ')[2]
+                    ?.replace('completed', '')
+                ) || '-',
+            }))
+            .get();
 
           flag = true;
           storage.setItem(STORAGE_GUILD_PROFILE, payload);
         }
       }
     }
-
   }
 
   if (flag) {
@@ -98,7 +105,6 @@ function* fetchGuildProfile() {
 }
 
 function* fetchMemberCharacters({ params }) {
-
   let flag = false;
   let payload = [];
 
@@ -121,7 +127,11 @@ function* fetchMemberCharacters({ params }) {
       const target = datas.shift();
       const characters = yield call(fetchMemberCharacter, target);
       payload.push({ characters, accountName: target.accountName });
-      console.log(`[ ${params.length - datas.length}/${params.length} ] fetchMemberCharacter`);
+      console.log(
+        `[ ${params.length - datas.length}/${
+          params.length
+        } ] fetchMemberCharacter`
+      );
       yield call(recursive, datas);
     } else {
       flag = true;

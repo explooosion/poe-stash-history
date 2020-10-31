@@ -21,7 +21,6 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-
     case FETCH_MY_ACCOUNT:
       return { ...state, loading: true };
     case FETCH_MY_ACCOUNT_SUCCESS:
@@ -29,14 +28,12 @@ export default (state = initialState, action) => {
     case FETCH_MY_ACCOUNT_ERROR:
       return { ...state, loading: false };
 
-
     case FETCH_CHARACTERS:
       return { ...state, loading: true };
     case FETCH_CHARACTERS_SUCCESS:
       return { ...state, loading: false, characters: action.payload };
     case FETCH_CHARACTERS_ERROR:
       return { ...state, loading: false };
-
 
     case FETCH_ITEMS:
       return { ...state, loading: true };
@@ -48,4 +45,4 @@ export default (state = initialState, action) => {
     default:
       return state;
   }
-}
+};

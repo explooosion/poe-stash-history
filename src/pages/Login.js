@@ -35,7 +35,7 @@ const Form = styled.div`
   > button {
     justify-content: center;
     margin-top: 2.5rem;
-    padding: .75rem 0;
+    padding: 0.75rem 0;
     width: 80%;
     font-size: 1.5rem;
     text-decoration: none;
@@ -52,7 +52,7 @@ function Login() {
   const onLogin = () => {
     toggleIsLoading(true);
     window.open('https://web.poe.garena.tw/', '_blank');
-  }
+  };
 
   if (cookie) toggleIsLoading(true);
   if (!delay()) return null;
@@ -61,14 +61,18 @@ function Login() {
     <Main>
       <Form>
         <h1>Please Login In</h1>
-        {
-          isLoading
-            ? <Button className="p-button-danger" label="I Have Login" onClick={onRedirect} />
-            : <Button label="Sing In With Garena" onClick={onLogin} />
-        }
+        {isLoading ? (
+          <Button
+            className="p-button-danger"
+            label="I Have Login"
+            onClick={onRedirect}
+          />
+        ) : (
+          <Button label="Sing In With Garena" onClick={onLogin} />
+        )}
       </Form>
     </Main>
-  )
+  );
 }
 
 export default Login;

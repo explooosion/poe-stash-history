@@ -11,11 +11,9 @@ import Header from '../container/Header';
 import Menu from '../container/Menu';
 import Navbar from '../container/Navbar';
 
-const Main = styled.main`
-`;
+const Main = styled.main``;
 
-const Container = styled.div`
-`;
+const Container = styled.div``;
 
 const Content = styled.section`
   margin-top: ${p => p.theme.headerHeight};
@@ -34,13 +32,20 @@ function Layout() {
   const { pathname } = useLocation();
   const { cookie } = useSelector(state => state.auth);
 
-  const breadModel = useMemo(() => pathname.substring(1).split('/').map(p => ({ label: p.toUpperCase() })), [pathname]);
+  const breadModel = useMemo(
+    () =>
+      pathname
+        .substring(1)
+        .split('/')
+        .map(p => ({ label: p.toUpperCase() })),
+    [pathname]
+  );
   const breadHome = { icon: 'pi pi-home', url: '/' };
 
   const renderRoute = route => {
     const { key, path, exact, component: Component } = route;
-    return (<Route key={key} exact={exact} path={path} component={Component} />);
-  }
+    return <Route key={key} exact={exact} path={path} component={Component} />;
+  };
 
   const renderRoutes = () => {
     return (
@@ -49,7 +54,7 @@ function Layout() {
         <Redirect to="/dashboard" />
       </>
     );
-  }
+  };
 
   const renderGlobalRoutes = () => {
     return (
@@ -58,7 +63,7 @@ function Layout() {
         <Redirect to="/login" />
       </>
     );
-  }
+  };
 
   if (_.isNull(cookie)) {
     return (
@@ -77,13 +82,11 @@ function Layout() {
         <Navbar />
         <Content>
           <Bread model={breadModel} home={breadHome} />
-          <Switch>
-            {renderRoutes()}
-          </Switch>
+          <Switch>{renderRoutes()}</Switch>
         </Content>
       </Container>
     </Main>
-  )
+  );
 }
 
 export default Layout;

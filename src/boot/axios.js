@@ -12,6 +12,7 @@ restApi.interceptors.response.use(
   async error => {
     if (error.response.status === 401) await removeSessionId();
     return error;
-  });
+  }
+);
 
 export { restApi };

@@ -4,9 +4,7 @@ import styled from 'styled-components';
 
 import List from '../container/Members/List';
 
-const Main = styled.section`
-
-`;
+const Main = styled.section``;
 
 function Members() {
   const { members } = useSelector(state => state.guild);
@@ -15,7 +13,7 @@ function Members() {
     <Main>
       <List data={members} />
     </Main>
-  )
+  );
 }
 
 export default Members;

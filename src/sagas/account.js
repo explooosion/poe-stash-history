@@ -11,7 +11,6 @@ import {
   FETCH_CHARACTERS,
   FETCH_CHARACTERS_SUCCESS,
   FETCH_CHARACTERS_ERROR,
-
   STORAGE_MY_ACCOUNT,
 } from '../reducers/account';
 
@@ -20,7 +19,6 @@ import { getMyAccount, getCharacters, getItems } from '../services/Account';
 import storage from '../boot/storage';
 
 function* fetchMyAccount() {
-
   let flag = false;
   let payload = {};
 
@@ -28,7 +26,6 @@ function* fetchMyAccount() {
     flag = true;
     payload = storage.getItem(STORAGE_MY_ACCOUNT);
   } else {
-
     const responseId = yield call(getMyAccount);
 
     if (responseId.status === 200) {
@@ -37,7 +34,6 @@ function* fetchMyAccount() {
       flag = true;
       storage.setItem(STORAGE_MY_ACCOUNT, payload);
     }
-
   }
 
   if (flag) {
@@ -48,7 +44,6 @@ function* fetchMyAccount() {
 }
 
 function* fetchCharacters({ params }) {
-
   const { accountName } = params;
 
   let flag = false;
@@ -69,7 +64,6 @@ function* fetchCharacters({ params }) {
 }
 
 function* fetchItems({ params }) {
-
   const { accountName, character } = params;
 
   let flag = false;

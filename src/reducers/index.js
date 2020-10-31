@@ -12,4 +12,4 @@ export default combineReducers({
   guild,
   account,
   poe,
-})
+});

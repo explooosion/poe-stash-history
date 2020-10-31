@@ -1,6 +1,10 @@
 import { restApi } from '../boot/axios';
 
-import { FETCH_EXAMPLE, FETCH_EXAMPLE_SUCCESS, FETCH_EXAMPLE_ERROR } from '../reducers/example';
+import {
+  FETCH_EXAMPLE,
+  FETCH_EXAMPLE_SUCCESS,
+  FETCH_EXAMPLE_ERROR,
+} from '../reducers/example';
 
 const URL = '';
 
@@ -8,7 +12,8 @@ const URL = '';
  * FETCH USERS - redux saga
  */
 export const getUsers = () =>
-  restApi.get(URL)
+  restApi
+    .get(URL)
     .then(res => res)
     .catch(err => err);
 
@@ -20,5 +25,5 @@ export const getExample = () => async dispatch => {
   await restApi
     .get(URL)
     .then(res => dispatch({ type: FETCH_EXAMPLE_SUCCESS, payload: res.data }))
-    .catch(res => dispatch({ type: FETCH_EXAMPLE_ERROR, payload: res }))
-}
+    .catch(res => dispatch({ type: FETCH_EXAMPLE_ERROR, payload: res }));
+};

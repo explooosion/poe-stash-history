@@ -1,11 +1,14 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 
-import { FETCH_AUTH, FETCH_AUTH_SUCCESS, FETCH_AUTH_ERROR } from '../reducers/auth';
+import {
+  FETCH_AUTH,
+  FETCH_AUTH_SUCCESS,
+  FETCH_AUTH_ERROR,
+} from '../reducers/auth';
 
 import { getSessionId } from '../services/Auth';
 
 function* fetchAuth() {
-
   const response = yield call(getSessionId);
 
   if (response) {

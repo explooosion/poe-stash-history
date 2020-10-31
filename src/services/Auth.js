@@ -17,7 +17,7 @@ export const getSessionId = () => {
       resolve(POESESSID);
     }
   });
-}
+};
 
 export const removeSessionId = () => {
   return new Promise(resolve => {
@@ -31,4 +31,4 @@ export const removeSessionId = () => {
       resolve();
     }
   });
-}
+};

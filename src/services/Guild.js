@@ -9,7 +9,8 @@ const urlGuildProfile = process.env.REACT_APP_GET_GUILD_PROFILE;
  * Get account html to parse guidid
  */
 export const getGuildId = (params = {}) =>
-  restApi.get(replaceUrlParams(urlMyAccount, params))
+  restApi
+    .get(replaceUrlParams(urlMyAccount, params))
     .then(res => res)
     .catch(err => err);
 
@@ -18,7 +19,8 @@ export const getGuildId = (params = {}) =>
  * @param {object} params { id }
  */
 export const getStashHistory = (params = {}) =>
-  restApi.get(replaceUrlParams(urlStashHistory, params))
+  restApi
+    .get(replaceUrlParams(urlStashHistory, params))
     .then(res => res)
     .catch(err => err);
 
@@ -27,6 +29,7 @@ export const getStashHistory = (params = {}) =>
  * @param {object} params { id }
  */
 export const getGuildProfile = (params = {}) =>
-  restApi.get(replaceUrlParams(urlGuildProfile, params))
+  restApi
+    .get(replaceUrlParams(urlGuildProfile, params))
     .then(res => res)
     .catch(err => err);

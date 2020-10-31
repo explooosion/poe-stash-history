@@ -9,10 +9,13 @@ import { FETCH_MY_ACCOUNT } from './reducers/account';
 import Layout from './layout';
 
 function App() {
-
   const dispatch = useDispatch();
 
-  const { members, memberCharactersLoading, memberCharactersFinished } = useSelector(state => state.guild);
+  const {
+    members,
+    memberCharactersLoading,
+    memberCharactersFinished,
+  } = useSelector(state => state.guild);
 
   useEffect(() => {
     dispatch({ type: FETCH_AUTH });
@@ -21,7 +24,11 @@ function App() {
   }, [dispatch]);
 
   useEffect(() => {
-    if (members.length > 0 && !memberCharactersLoading && !memberCharactersFinished) {
+    if (
+      members.length > 0 &&
+      !memberCharactersLoading &&
+      !memberCharactersFinished
+    ) {
       dispatch({ type: FETCH_MEMBER_CHARACTERS, params: members });
     }
   }, [dispatch, members, memberCharactersLoading, memberCharactersFinished]);
