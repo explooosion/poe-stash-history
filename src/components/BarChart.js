@@ -14,17 +14,19 @@ function BarChart(props) {
   const { width, height, datas, title, horizontal } = props;
 
   const colorBase = _.map(datas, () => tinycolor.random());
-  const borderColor = _.map(colorBase, c => c.setAlpha(0.8).toRgbString());
-  const backgroundColor = _.map(colorBase, c => c.setAlpha(0.3).toRgbString());
+  const borderColor = _.map(colorBase, (c) => c.setAlpha(0.8).toRgbString());
+  const backgroundColor = _.map(colorBase, (c) =>
+    c.setAlpha(0.3).toRgbString()
+  );
 
   const data = {
-    labels: _.map(datas, cg => cg.label),
+    labels: _.map(datas, (cg) => cg.label),
     datasets: [
       {
         borderWidth: 1,
         borderColor,
         backgroundColor,
-        data: _.map(datas, cg => cg.value),
+        data: _.map(datas, (cg) => cg.value),
       },
     ],
   };

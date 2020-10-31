@@ -28,7 +28,8 @@ export const color = {
 };
 
 export const font = {
-  globalFont: `'Microsoft JhengHei', 'Segoe UI', Helvetica, Arial, Helvetica, sans-serif;`,
+  globalFont:
+    "'Microsoft JhengHei', 'Segoe UI', Helvetica, Arial, Helvetica, sans-serif;",
 };
 
 export const screen = {

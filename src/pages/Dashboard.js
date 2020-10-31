@@ -35,69 +35,69 @@ const CrdChart = styled(Card)`
 `;
 
 function Dashboard() {
-  const { members } = useSelector(state => state.guild);
-  const { classes, classIds } = useSelector(state => state.poe);
+  const { members } = useSelector((state) => state.guild);
+  const { classes, classIds } = useSelector((state) => state.poe);
 
   const allTotal = members.length;
-  const officerTotal = members.filter(m => m.memberType === 'Officer').length;
-  const memberTotal = members.filter(m => m.memberType === 'Member').length;
-  const publicTotal = members.filter(m => m.public === true).length;
+  const officerTotal = members.filter((m) => m.memberType === 'Officer').length;
+  const memberTotal = members.filter((m) => m.memberType === 'Member').length;
+  const publicTotal = members.filter((m) => m.public === true).length;
 
   const currentLeagueMembers = _.chain(members)
-    .filter(mb => _.isArray(mb.characters))
-    .filter(mb => mb.characters.length > 0)
-    .map(mb => mb.characters.filter(c => c.league !== '標準模式'))
-    .filter(mb => mb.length > 0)
+    .filter((mb) => _.isArray(mb.characters))
+    .filter((mb) => mb.characters.length > 0)
+    .map((mb) => mb.characters.filter((c) => c.league !== '標準模式'))
+    .filter((mb) => mb.length > 0)
     .value();
 
   const avgLevel = _.round(
     _.chain(currentLeagueMembers)
-      .map(mb => _.meanBy(mb, 'level'))
+      .map((mb) => _.meanBy(mb, 'level'))
       .mean()
       .value()
   );
 
   const avgChallenge = _.round(
     _.chain(members)
-      .filter(mb => _.isNumber(mb.challenge))
+      .filter((mb) => _.isNumber(mb.challenge))
       .meanBy('challenge')
       .value()
   );
 
   const classGroup = _.chain(currentLeagueMembers)
-    .map(mb => mb.map(m => _.pick(m, ['class', 'classId'])))
+    .map((mb) => mb.map((m) => _.pick(m, ['class', 'classId'])))
     .flattenDeep()
-    .map(mb => ({
+    .map((mb) => ({
       class: _.get(
-        classes.find(c => c.class === mb.class),
+        classes.find((c) => c.class === mb.class),
         'name'
       ),
       classId: _.get(
-        classIds.find(c => c.classId === mb.classId),
+        classIds.find((c) => c.classId === mb.classId),
         'name'
       ),
     }))
     .groupBy('class')
-    .mapValues(v => v.length)
+    .mapValues((v) => v.length)
     .map((value, label) => ({ value, label }))
     .orderBy('value', 'desc')
     .value();
 
   const classIdGroup = _.chain(currentLeagueMembers)
-    .map(mb => mb.map(m => _.pick(m, ['class', 'classId'])))
+    .map((mb) => mb.map((m) => _.pick(m, ['class', 'classId'])))
     .flattenDeep()
-    .map(mb => ({
+    .map((mb) => ({
       class: _.get(
-        classes.find(c => c.class === mb.class),
+        classes.find((c) => c.class === mb.class),
         'name'
       ),
       classId: _.get(
-        classIds.find(c => c.classId === mb.classId),
+        classIds.find((c) => c.classId === mb.classId),
         'name'
       ),
     }))
     .groupBy('classId')
-    .mapValues(v => v.length)
+    .mapValues((v) => v.length)
     .map((value, label) => ({ value, label }))
     .orderBy('value', 'desc')
     .value();
@@ -148,7 +148,7 @@ function Dashboard() {
     },
   ];
 
-  const renderCards = card => {
+  const renderCards = (card) => {
     const { id, title, text, icon: Icon } = card;
     return (
       <Crd key={`c-${id}`} className="p-mb-4" title={title} subTitle={text}>
@@ -160,7 +160,7 @@ function Dashboard() {
   return (
     <Main>
       <div className="p-d-flex p-jc-md-between p-flex-wrap">
-        {Cards.map(c => renderCards(c))}
+        {Cards.map((c) => renderCards(c))}
       </div>
       <div className="p-d-flex p-jc-md-between p-flex-wrap">
         <CrdChart style={{ width: '48.5%' }}>

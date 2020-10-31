@@ -32,11 +32,13 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case FETCH_STASH_HISTORY:
       return { ...state, loading: true };
-    case FETCH_STASH_HISTORY_SUCCESS:
-      const history = action.payload.map(payload => {
+    case FETCH_STASH_HISTORY_SUCCESS: {
+      const history = action.payload.map((payload) => {
         const p = payload;
         const { characterName: name, league } = p;
-        const member = state.members.find(m => _.find(m.characters, { name }));
+        const member = state.members.find((m) =>
+          _.find(m.characters, { name })
+        );
         if (member) {
           // Replace name with heighest level in league.
           const character = _.chain(member.characters)
@@ -48,6 +50,7 @@ export default (state = initialState, action) => {
         return p;
       });
       return { ...state, loading: false, history };
+    }
     case FETCH_STASH_HISTORY_ERROR:
       return { ...state, loading: false };
 
@@ -61,13 +64,13 @@ export default (state = initialState, action) => {
     case FETCH_MEMBER_CHARACTERS:
       return { ...state, loading: true, memberCharactersLoading: true };
     case FETCH_MEMBER_CHARACTERS_SUCCESS:
-      state.members.forEach(member => {
+      state.members.forEach((member) => {
         const m = member;
         const target = action.payload.find(
-          p => p.accountName === m.accountName
+          (p) => p.accountName === m.accountName
         );
         m.characters = target ? target.characters : [];
-        m.public = target.characters.length > 0 ? true : false;
+        m.public = target.characters.length > 0;
       });
       return {
         ...state,

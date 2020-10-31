@@ -15,7 +15,7 @@ const Form = styled.div`
   width: 500px;
   height: 220px;
   text-align: center;
-  border: 2px solid ${p => p.theme.gray};
+  border: 2px solid ${(p) => p.theme.gray};
 
   > h1 {
     position: relative;
@@ -28,7 +28,7 @@ const Form = styled.div`
       top: 3.25rem;
       left: 0;
       width: 100%;
-      border-top: 2px solid ${p => p.theme.gray};
+      border-top: 2px solid ${(p) => p.theme.gray};
     }
   }
 
@@ -45,7 +45,7 @@ const Form = styled.div`
 function Login() {
   const [delay] = useTimeout(500);
   const [isLoading, toggleIsLoading] = useState(false);
-  const { cookie } = useSelector(state => state.auth);
+  const { cookie } = useSelector((state) => state.auth);
 
   const onRedirect = () => window.location.reload();
 

@@ -9,7 +9,7 @@ const Main = styled.nav`
   display: flex;
   align-items: center;
   width: 100%;
-  height: ${p => `calc(${p.theme.headerHeight} - 15px) `};
+  height: ${(p) => `calc(${p.theme.headerHeight} - 15px) `};
 `;
 
 const Title = styled.h3`
@@ -26,8 +26,8 @@ const Info = styled.div`
 `;
 
 function Navbar() {
-  const { name, tag } = useSelector(state => state.guild);
-  const { accountName } = useSelector(state => state.account);
+  const { name, tag } = useSelector((state) => state.guild);
+  const { accountName } = useSelector((state) => state.account);
 
   return (
     <Main>

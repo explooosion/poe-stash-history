@@ -11,8 +11,8 @@ const urlGuildProfile = process.env.REACT_APP_GET_GUILD_PROFILE;
 export const getGuildId = (params = {}) =>
   restApi
     .get(replaceUrlParams(urlMyAccount, params))
-    .then(res => res)
-    .catch(err => err);
+    .then((res) => res)
+    .catch((err) => err);
 
 /**
  * Get stash history by id
@@ -21,8 +21,8 @@ export const getGuildId = (params = {}) =>
 export const getStashHistory = (params = {}) =>
   restApi
     .get(replaceUrlParams(urlStashHistory, params))
-    .then(res => res)
-    .catch(err => err);
+    .then((res) => res)
+    .catch((err) => err);
 
 /**
  * Get guild profile by id
@@ -31,5 +31,5 @@ export const getStashHistory = (params = {}) =>
 export const getGuildProfile = (params = {}) =>
   restApi
     .get(replaceUrlParams(urlGuildProfile, params))
-    .then(res => res)
-    .catch(err => err);
+    .then((res) => res)
+    .catch((err) => err);

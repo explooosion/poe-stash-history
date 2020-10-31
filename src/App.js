@@ -15,7 +15,7 @@ function App() {
     members,
     memberCharactersLoading,
     memberCharactersFinished,
-  } = useSelector(state => state.guild);
+  } = useSelector((state) => state.guild);
 
   useEffect(() => {
     dispatch({ type: FETCH_AUTH });

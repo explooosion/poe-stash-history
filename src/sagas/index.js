@@ -7,7 +7,7 @@ const sagas = [
   'account',
 ];
 
-const Sagas = sagas.map(saga => require(`./${saga}`).default());
+const Sagas = sagas.map((saga) => require(`./${saga}`).default());
 
 export default function* rootSaga() {
   yield all(Sagas);

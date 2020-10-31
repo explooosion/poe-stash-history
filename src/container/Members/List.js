@@ -95,7 +95,7 @@ function List(props) {
     <InputText
       style={{ width: '100%' }}
       value={accountName}
-      onChange={e =>
+      onChange={(e) =>
         tbEl.current.filter(e.target.value, 'accountName', 'contains') ||
         setAccountName(e.target.value)
       }
@@ -104,13 +104,13 @@ function List(props) {
 
   const idBodyTemplate = (rowData, column) => column.rowIndex + 1;
 
-  const publicBodyTemplate = rowData => {
+  const publicBodyTemplate = (rowData) => {
     const color = rowData.public ? 'p-tag-info' : 'p-tag-danger';
     const { label } = rowData.public ? isPublics[0] : isPublics[1];
     return <span className={`p-tag ${color}`}>{label}</span>;
   };
 
-  const charactersLenBodyTemplate = rowData =>
+  const charactersLenBodyTemplate = (rowData) =>
     rowData?.characters?.length ?? '-';
 
   return (

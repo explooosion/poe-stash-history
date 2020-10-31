@@ -7,7 +7,7 @@ const Main = styled.header`
   display: flex;
   align-items: center;
   width: 100%;
-  height: ${p => p.theme.headerHeight};
+  height: ${(p) => p.theme.headerHeight};
 `;
 
 const Title = styled.div`

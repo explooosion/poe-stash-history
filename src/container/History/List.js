@@ -84,7 +84,7 @@ function List(props) {
     <InputText
       style={{ width: '100%' }}
       value={characterName}
-      onChange={e =>
+      onChange={(e) =>
         tbEl.current.filter(e.target.value, 'characterName', 'contains') ||
         setCharacterName(e.target.value)
       }
@@ -95,7 +95,7 @@ function List(props) {
     <InputText
       style={{ width: '100%' }}
       value={item}
-      onChange={e =>
+      onChange={(e) =>
         tbEl.current.filter(e.target.value, 'item', 'contains') ||
         setItem(e.target.value)
       }
@@ -141,7 +141,7 @@ function List(props) {
     />
   );
 
-  const actionBodyTemplate = rowData => {
+  const actionBodyTemplate = (rowData) => {
     const color =
       rowData.action === actions[0].value ? 'p-tag-info' : 'p-tag-danger';
     const { label } =

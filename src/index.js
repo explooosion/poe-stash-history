@@ -23,9 +23,9 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    font-family: ${p => p.theme.globalFont};
-    color: ${p => p.theme.white};
-    background-color: ${p => p.theme.dark};
+    font-family: ${(p) => p.theme.globalFont};
+    color: ${(p) => p.theme.white};
+    background-color: ${(p) => p.theme.dark};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

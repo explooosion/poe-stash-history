@@ -36,7 +36,7 @@ function* fetchStashHistory({ params }) {
 
   if (response.status === 200) {
     flag = true;
-    payload = response.data.entries.map(data => ({
+    payload = response.data.entries.map((data) => ({
       ..._.omit(data, ['account', 'time']),
       ...data.account,
       time: format(fromUnixTime(data.time), 'yyyy-MM-dd HH:mm:ss'),

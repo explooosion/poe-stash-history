@@ -23,6 +23,10 @@ export function replaceUrlParams(url = '', params = {}) {
       .join('|')
       .value();
     // id=:id&name=:name => id=1&name=Robby
-    return _.replace(url, new RegExp(rexStr, 'gi'), matched => mapObj[matched]);
+    return _.replace(
+      url,
+      new RegExp(rexStr, 'gi'),
+      (matched) => mapObj[matched]
+    );
   }
 }

@@ -7,7 +7,7 @@ import List from '../container/Members/List';
 const Main = styled.section``;
 
 function Members() {
-  const { members } = useSelector(state => state.guild);
+  const { members } = useSelector((state) => state.guild);
 
   return (
     <Main>

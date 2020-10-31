@@ -11,8 +11,8 @@ const urlGetItems = process.env.REACT_APP_GET_ITEMS;
 export const getMyAccount = (params = {}) =>
   restApi
     .get(replaceUrlParams(urlMyAccount, params))
-    .then(res => res)
-    .catch(err => err);
+    .then((res) => res)
+    .catch((err) => err);
 
 /**
  * Get account characters
@@ -21,8 +21,8 @@ export const getMyAccount = (params = {}) =>
 export const getCharacters = (params = {}) =>
   restApi
     .get(replaceUrlParams(urlGetCharacters, params))
-    .then(res => res)
-    .catch(err => err);
+    .then((res) => res)
+    .catch((err) => err);
 
 /**
  * Get account character info and items
@@ -31,5 +31,5 @@ export const getCharacters = (params = {}) =>
 export const getItems = (params = {}) =>
   restApi
     .get(replaceUrlParams(urlGetItems, params))
-    .then(res => res)
-    .catch(err => err);
+    .then((res) => res)
+    .catch((err) => err);

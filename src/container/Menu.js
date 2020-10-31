@@ -12,10 +12,10 @@ import { transitions } from 'polished';
 
 const Main = styled.nav`
   position: fixed;
-  top: ${p => p.theme.headerHeight};
+  top: ${(p) => p.theme.headerHeight};
   left: 0;
-  width: ${p => p.theme.menuWidth};
-  height: ${p => `calc(100vh - ${p.theme.headerHeight}) `};
+  width: ${(p) => p.theme.menuWidth};
+  height: ${(p) => `calc(100vh - ${p.theme.headerHeight}) `};
 `;
 
 const Container = styled.div`
@@ -46,7 +46,7 @@ const List = styled.nav`
     padding: 1rem;
     font-size: 12px;
     text-decoration: none;
-    color: ${p => p.theme.white};
+    color: ${(p) => p.theme.white};
     opacity: 0.7;
     ${transitions('opacity .2s ease-in-out')};
 
@@ -102,7 +102,7 @@ const list = [
 function Menu() {
   const { pathname } = useLocation();
 
-  const renderItem = item => {
+  const renderItem = (item) => {
     const { id, label, url, icon: Icon, external } = item;
     return external ? (
       <a
@@ -125,7 +125,7 @@ function Menu() {
   return (
     <Main>
       <Container>
-        <List>{list.map(item => renderItem(item))}</List>
+        <List>{list.map((item) => renderItem(item))}</List>
       </Container>
     </Main>
   );

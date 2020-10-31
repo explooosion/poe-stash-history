@@ -16,8 +16,8 @@ const Main = styled.main``;
 const Container = styled.div``;
 
 const Content = styled.section`
-  margin-top: ${p => p.theme.headerHeight};
-  margin-left: ${p => p.theme.menuWidth};
+  margin-top: ${(p) => p.theme.headerHeight};
+  margin-left: ${(p) => p.theme.menuWidth};
   padding-right: 2rem;
 `;
 
@@ -30,19 +30,19 @@ const Bread = styled(BreadCrumb)`
 
 function Layout() {
   const { pathname } = useLocation();
-  const { cookie } = useSelector(state => state.auth);
+  const { cookie } = useSelector((state) => state.auth);
 
   const breadModel = useMemo(
     () =>
       pathname
         .substring(1)
         .split('/')
-        .map(p => ({ label: p.toUpperCase() })),
+        .map((p) => ({ label: p.toUpperCase() })),
     [pathname]
   );
   const breadHome = { icon: 'pi pi-home', url: '/' };
 
-  const renderRoute = route => {
+  const renderRoute = (route) => {
     const { key, path, exact, component: Component } = route;
     return <Route key={key} exact={exact} path={path} component={Component} />;
   };
@@ -50,7 +50,7 @@ function Layout() {
   const renderRoutes = () => {
     return (
       <>
-        {Routes.map(route => renderRoute(route))}
+        {Routes.map((route) => renderRoute(route))}
         <Redirect to="/dashboard" />
       </>
     );
@@ -59,7 +59,7 @@ function Layout() {
   const renderGlobalRoutes = () => {
     return (
       <>
-        {GlobaleRoutes.map(route => renderRoute(route))}
+        {GlobaleRoutes.map((route) => renderRoute(route))}
         <Redirect to="/login" />
       </>
     );
