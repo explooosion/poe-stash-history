@@ -19,7 +19,7 @@ const Main = styled.nav`
 `;
 
 const Container = styled.div`
-  overflow-y: scroll;
+  overflow-y: auto;
   margin: 0 auto;
   width: 84%;
   height: 98%;
