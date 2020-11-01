@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { isEqual, parseISO, formatISO } from 'date-fns';
+import { DateTime as dt } from 'luxon';
 import { DataTable } from 'primereact/datatable';
 import { Dropdown } from 'primereact/dropdown';
 import { Column } from 'primereact/column';
@@ -69,9 +69,11 @@ function List(props) {
 
   const filterDate = (value, filter) => {
     try {
-      const target = formatISO(new Date(filter), { representation: 'date' });
-      const current = formatISO(parseISO(value), { representation: 'date' });
-      return isEqual(new Date(target), new Date(current));
+      const target = dt.fromJSDate(filter).toFormat('yyyy-MM-dd');
+      const current = dt
+        .fromFormat(value, 'yyyy-MM-dd HH:mm:ss')
+        .toFormat('yyyy-MM-dd');
+      return target === current;
     } catch (e) {
       console.error(e);
       return true;

@@ -1,7 +1,7 @@
 import { call, put, takeLatest, delay } from 'redux-saga/effects';
 import cheerio from 'cheerio';
 import _ from 'lodash';
-import { fromUnixTime, format } from 'date-fns';
+import { DateTime as dt } from 'luxon';
 
 import {
   FETCH_GUILD_PROFILE,
@@ -26,6 +26,8 @@ import { getCharacters } from '../services/Account';
 
 import storage from '../boot/storage';
 
+dt.local();
+
 function* fetchStashHistory({ params }) {
   const { id } = params;
 
@@ -39,7 +41,8 @@ function* fetchStashHistory({ params }) {
     payload = response.data.entries.map((data) => ({
       ..._.omit(data, ['account', 'time']),
       ...data.account,
-      time: format(fromUnixTime(data.time), 'yyyy-MM-dd HH:mm:ss'),
+      test: data.time,
+      time: dt.fromSeconds(data.time).toFormat('yyyy-MM-dd HH:mm:ss'),
     }));
   }
 
